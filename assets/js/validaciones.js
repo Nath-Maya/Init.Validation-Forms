@@ -15,17 +15,29 @@ export function valida(input) {
   }
 }
 
-//objeto para definir los tipos de errores de los inputs
+
+
+//* Definiendo los mensajes de error en cada input
+  //crear objetos con cada uno.
 
 const mensajesDeError = {
   nombre: {
     valueMissing: "Este campo no puede estar vacío."
-  
-  
-  }
+  },
+  email: {
+  valueMissing: "Este campo no puede estar vacío.",
+  typeMismatch: "El correo no es válido."
+  },
+  password: {
+    valueMissing: "Este campo no pued estar vacío.",
+    patternMismatch: "Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales."
+  },
 
-
-}
+    nacimiento: {
+      valueMissing: "Este campo no pued estar vacío.",
+      customError: "Debes tener al menos de 18 años"
+    },
+};
 
 
 
