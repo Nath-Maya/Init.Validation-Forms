@@ -22,7 +22,6 @@ function validarNacimiento(input) {
   }
   //metodo .setCustomValidity define el mensaje de validacion personalizado.
   input.setCustomValidity(mensaje);
-  console.log(mensaje);
 }
 
 //* Verificar si la fecha ingresada cumple con la condicion de edad >18 years
