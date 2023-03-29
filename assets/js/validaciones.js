@@ -6,7 +6,31 @@ export function valida(input) {
   if (validadores[tipoDeInput]) {
     validadores[tipoDeInput](input);
   }
+
+  //Validar el campo
+  if (input.validity.valid) {
+    input.parentElement.classList.remove("input-container--invalid"); //remueve la clase
+  } else {
+    input.parentElement.classList.add("input-container--invalid"); //si esta en blanco, adiciona la clase
+  }
 }
+
+//objeto para definir los tipos de errores de los inputs
+
+const mensajesDeError = {
+  nombre: {
+    valueMissing: "Este campo no puede estar vacío."
+  
+  
+  }
+
+
+}
+
+
+
+
+
 
 const validadores = {
  nacimiento: (input) => validarNacimiento(input),
