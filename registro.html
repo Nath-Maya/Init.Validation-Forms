@@ -70,14 +70,15 @@
                     <!-- *DIRECCION -->
 
                     <div class="input-container">
-                        <input name="cep" id="cep" class="input" type="text" placeholder="CEP">
+                        <input name="cep" id="cep" class="input" type="text" placeholder="CEP" data-tipo="direccion" pattern="[\s\S]{10,40}">
+                        <!-- Indico que solo acepte letras minúscula y mayúscula, y de 10 a 40 caracteres pattern="[\s\S]{10,40}" -->
                         <label class="input-label" for="cep">Dirección completa</label>
                         <span class="input-message-error">Este campo no es valido</span>
                     </div>
                     <!-- *INPUT CIUDAD -->
 
                     <div class="input-container">
-                        <input name="city" id="city" class="input" type="text" placeholder="Ciudad">
+                        <input name="city" id="city" class="input" type="text" placeholder="Ciudad" data-tipo="Ciudad" pattern="[\s\S]{10,40}">
                         <label class="input-label" for="city">Ciudad</label>
                         <span class="input-message-error">Este campo no es valido</span>
                     </div>
