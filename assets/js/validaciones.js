@@ -63,6 +63,11 @@ const mensajesDeError = {
     valueMissing: "Este campo no puede estar vacío.",
     patternMismatch: "El formato debe tener de 10 a 40 caracteres",
   },
+
+  estado: {
+    valueMissing: "Este campo no puede estar vacío.",
+    patternMismatch: "El formato debe tener de 10 a 30 caracteres",
+  },
 };
 
 const validadores = {
