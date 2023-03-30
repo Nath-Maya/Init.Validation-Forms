@@ -1,4 +1,3 @@
-
 //* Entrada de fecha de nacimiento
 
 export function valida(input) {
@@ -10,43 +9,66 @@ export function valida(input) {
   //Validar el campo
   if (input.validity.valid) {
     input.parentElement.classList.remove("input-container--invalid"); //remueve la clase
+    input.parentElement.querySelector(".input-message-error").innerHTML = "";
   } else {
     input.parentElement.classList.add("input-container--invalid"); //si esta en blanco, adiciona la clase
+    input.parentElement.querySelector(".input-message-error").innerHTML =
+      mostrarMensajeDeError(tipoDeInput, input);
   }
 }
 
-
-
 //* Definiendo los mensajes de error en cada input
-  //crear objetos con cada uno.
 
+  //Tipos de Errores / se genera un array.
+
+  const tipoDeErrores = [
+    "valueMissing",
+    "typeMismatch",
+    "patternMismatch",
+    "customError",
+  ]
+
+//crear objetos con cada uno.
 const mensajesDeError = {
   nombre: {
-    valueMissing: "Este campo no puede estar vacío."
+    valueMissing: "Este campo no puede estar vacío.",
   },
   email: {
-  valueMissing: "Este campo no puede estar vacío.",
-  typeMismatch: "El correo no es válido."
+    valueMissing: "Este campo no puede estar vacío.",
+    typeMismatch: "El correo no es válido.",
   },
   password: {
     valueMissing: "Este campo no pued estar vacío.",
-    patternMismatch: "Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales."
+    patternMismatch:
+      "Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales.",
   },
 
-    nacimiento: {
-      valueMissing: "Este campo no pued estar vacío.",
-      customError: "Debes tener al menos de 18 años"
-    },
+  nacimiento: {
+    valueMissing: "Este campo no pued estar vacío.",
+    customError: "Debes tener al menos de 18 años",
+  },
 };
-
-
-
-
-
 
 const validadores = {
- nacimiento: (input) => validarNacimiento(input),
+  nacimiento: (input) => validarNacimiento(input),
 };
+
+//*Mensaje de Error
+
+function mostrarMensajeDeError(tipoDeInput, input) {
+  let mensaje = "";
+  tipoDeErrores.forEach((error) => {
+    if (input.validity[error]) {
+      console.log(tipoDeInput, error);
+      console.log(input.validity[error]);
+      console.log(mensajesDeError[tipoDeInput][error]);
+      mensaje = mensajesDeError[tipoDeInput][error];
+    }
+  });
+  return mensaje;
+}
+
+
 
 //* Valor fecha de nacimiento
 
