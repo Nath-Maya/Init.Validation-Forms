@@ -1,4 +1,4 @@
-//* Entrada de fecha de nacimiento
+//* ENTRADA FECHA DE NACIMIENTO
 
 export function valida(input) {
   const tipoDeInput = input.dataset.tipo;
@@ -17,7 +17,7 @@ export function valida(input) {
   }
 }
 
-//* Definiendo los mensajes de error en cada input
+//* DEFINIR TIPO DE ERRORES
 
   //Tipos de Errores / se genera un array.
 
@@ -30,22 +30,28 @@ export function valida(input) {
 
 //crear objetos con cada uno.
 const mensajesDeError = {
+  //el objeto es el data-tipo que colocamos en las etiquetas de html
   nombre: {
-    valueMissing: "Este campo no puede estar vacío.",
+    valueMissing: "Debe ingresar un nombre de usuario.",
   },
   email: {
     valueMissing: "Este campo no puede estar vacío.",
     typeMismatch: "El correo no es válido.",
   },
   password: {
-    valueMissing: "Este campo no pued estar vacío.",
+    valueMissing: "Este campo no puede estar vacío.",
     patternMismatch:
       "Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales.",
   },
 
   nacimiento: {
-    valueMissing: "Este campo no pued estar vacío.",
+    valueMissing: "Este campo no puede estar vacío.",
     customError: "Debes tener al menos de 18 años",
+  },
+
+  numero: {
+    valueMissing: "Este campo no puede estar vacío.",
+    patternMismatch: "El formato requerido es de 10 digitos",
   },
 };
 
@@ -53,7 +59,7 @@ const validadores = {
   nacimiento: (input) => validarNacimiento(input),
 };
 
-//*Mensaje de Error
+//* FUNCION PARA LOS MENSAJES DE ERROR
 
 function mostrarMensajeDeError(tipoDeInput, input) {
   let mensaje = "";
@@ -70,7 +76,7 @@ function mostrarMensajeDeError(tipoDeInput, input) {
 
 
 
-//* Valor fecha de nacimiento
+//* MENSAJE FECHA DE NACIMIENTO
 
 function validarNacimiento(input) {
   const fechaCliente = new Date(input.value); //tomar el valor del input de fecha
@@ -82,7 +88,7 @@ function validarNacimiento(input) {
   input.setCustomValidity(mensaje);
 }
 
-//* Verificar si la fecha ingresada cumple con la condicion de edad >18 years
+//* VALIDAR FECHA DE NACIMIENTO > 18
 
 function mayorDeEdad(fecha) {
   const fechaActual = new Date();
